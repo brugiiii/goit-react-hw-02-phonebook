@@ -4,10 +4,12 @@ import { Label, Input } from './Filter.styled';
 
 export class Filter extends Component {
   render() {
+    const { onChange, value } = this.props;
+
     return (
       <Label>
         Find contacts by name
-        <Input type="text" name="filter" onChange={this.props.onChange} />
+        <Input type="text" name="filter" onChange={onChange} value={value} />
       </Label>
     );
   }
