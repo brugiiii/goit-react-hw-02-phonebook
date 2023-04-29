@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { ContactsListEl, ListItem, Button } from './ContactsList.styled';
 
 export class ContactsList extends Component {
   render() {
     const { contacts, onClick } = this.props;
 
     return (
-      <ul>
+      <ContactsListEl>
         {contacts.map(({ name, id, number }) => (
-          <li key={id}>
+          <ListItem key={id}>
             {name}: {number}
-            <button onClick={() => onClick(id)}>Delete</button>
-          </li>
+            <Button onClick={() => onClick(id)}>Delete</Button>
+          </ListItem>
         ))}
-      </ul>
+      </ContactsListEl>
     );
   }
 }
