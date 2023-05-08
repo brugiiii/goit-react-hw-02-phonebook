@@ -6,7 +6,7 @@ export const ContactsBook = styled.div`
   justify-content: center;
   align-items: center;
 
-  height: 753px;
+  height: 100vh;
 
   color: white;
   background-color: #3b5998;

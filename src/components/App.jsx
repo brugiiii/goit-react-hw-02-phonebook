@@ -13,6 +13,24 @@ export class App extends Component {
     filter: '',
   };
 
+  LOCAL_KEY = 'contacts';
+
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem(this.LOCAL_KEY));
+
+    if (contacts) {
+      this.setState({ contacts });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    const { contacts } = this.state;
+
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem(this.LOCAL_KEY, JSON.stringify(contacts));
+    }
+  }
+
   addContact = ({ name, number }) => {
     const loweredName = name.toLowerCase();
 
